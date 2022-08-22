@@ -45,6 +45,7 @@ from .streams import (
     Tags,
     TeamMembers,
     TeamMemberships,
+    TeamRepositories,
     Teams,
     Users,
     WorkflowRuns,
@@ -226,4 +227,5 @@ class SourceGithub(AbstractSource):
             Workflows(**repository_args_with_start_date),
             WorkflowRuns(**repository_args_with_start_date),
             TeamMemberships(parent=team_members_stream, **repository_args),
+            TeamRepositories(parent=teams_stream, **repository_args),
         ]
