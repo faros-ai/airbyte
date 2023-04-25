@@ -7,6 +7,7 @@ WORKDIR /airbyte/integration_code
 COPY source_asana ./source_asana
 COPY main.py ./
 COPY setup.py ./
+RUN pip install --upgrade setuptools
 RUN pip install .
 
 ENV AIRBYTE_ENTRYPOINT "python /airbyte/integration_code/main.py"

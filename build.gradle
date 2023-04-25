@@ -419,6 +419,8 @@ subprojects { subproj ->
 
         implementation libs.s3
 
+        implementation libs.bundles.security
+
         // Lombok dependencies
         compileOnly libs.lombok
         annotationProcessor libs.lombok
