@@ -17,25 +17,41 @@ dependencies {
     implementation project(':airbyte-integrations:bases:bases-destination-jdbc')
     implementation files(project(':airbyte-integrations:bases:base-java').airbyteDocker.outputs)
 
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.14')
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.455')
     implementation 'com.google.cloud.bigdataoss:gcs-connector:hadoop3-2.2.1'
 
     // csv
-    implementation 'com.amazonaws:aws-java-sdk-s3:1.11.978'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.455'
     implementation 'org.apache.commons:commons-csv:1.4'
     implementation 'com.github.alexmojaki:s3-stream-upload:2.2.2'
 
     // parquet
-    implementation ('org.apache.hadoop:hadoop-common:3.3.3') {
+    implementation ('org.apache.hadoop:hadoop-common:3.3.5') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
         exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+        exclude group: 'log4j', module: 'log4j'
+        exclude group: 'io.netty', module: 'netty'
+        exclude group: 'org.apache.hadoop.thirdparty', module: 'hadoop-shaded-protobuf_3_7'
+        exclude group: 'org.apache.hadoop', module: 'hadoop-hdfs-client'
     }
-    implementation ('org.apache.hadoop:hadoop-aws:3.3.3') { exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
-    implementation ('org.apache.hadoop:hadoop-mapreduce-client-core:3.3.3') {
+    implementation ('org.apache.hadoop:hadoop-aws:3.3.5') {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'log4j', module: 'log4j'
+        exclude group: 'io.netty', module: 'netty'
+        exclude group: 'com.amazonaws', module: 'aws-java-sdk-bundle'
+        exclude group: 'org.apache.hadoop.thirdparty', module: 'hadoop-shaded-protobuf_3_7'
+        exclude group: 'org.apache.hadoop', module: 'hadoop-hdfs-client'
+    }
+
+    implementation ('org.apache.hadoop:hadoop-mapreduce-client-core:3.3.5') {
         exclude group: 'org.slf4j', module: 'slf4j-log4j12'
         exclude group: 'org.slf4j', module: 'slf4j-reload4j'
+        exclude group: 'log4j', module: 'log4j'
+        exclude group: 'io.netty', module: 'netty'
+        exclude group: 'org.apache.hadoop.thirdparty', module: 'hadoop-shaded-protobuf_3_7'
+        exclude group: 'org.apache.hadoop', module: 'hadoop-hdfs-client'
     }
-    implementation ('org.apache.parquet:parquet-avro:1.12.0') { exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
+    implementation ('org.apache.parquet:parquet-avro:1.13.0') { exclude group: 'org.slf4j', module: 'slf4j-log4j12'}
     implementation ('com.github.airbytehq:json-avro-converter:1.1.0') { exclude group: 'ch.qos.logback', module: 'logback-classic'}
 
     testImplementation 'org.apache.commons:commons-lang3:3.11'

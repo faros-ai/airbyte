@@ -23,6 +23,8 @@ dependencies {
 //     https://github.com/aesy/datasize
     implementation "io.aesy:datasize:1.0.0"
 
+    implementation libs.bundles.security
+
     testImplementation libs.connectors.testcontainers.postgresql
     testImplementation "org.mockito:mockito-inline:4.1.0"
 
