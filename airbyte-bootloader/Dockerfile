@@ -7,6 +7,8 @@ ARG VERSION=0.40.9
 ENV APPLICATION airbyte-bootloader
 ENV VERSION ${VERSION}
 
+RUN yum update --security -y && yum clean all
+
 WORKDIR /app
 
 ADD bin/${APPLICATION}-${VERSION}.tar /app

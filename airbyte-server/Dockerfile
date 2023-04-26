@@ -9,6 +9,8 @@ ARG VERSION=0.40.9
 ENV APPLICATION airbyte-server
 ENV VERSION ${VERSION}
 
+RUN yum update --security -y && yum clean all
+
 WORKDIR /app
 
 # This is automatically unzipped by Docker
