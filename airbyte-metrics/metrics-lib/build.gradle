@@ -18,6 +18,9 @@ dependencies {
     implementation("io.opentelemetry:opentelemetry-exporter-otlp")
 
     implementation 'com.datadoghq:java-dogstatsd-client:4.0.0'
+    constraints {
+        implementation 'com.github.jnr:jnr-posix:3.1.8'
+    }
 
     testImplementation project(':airbyte-config:config-persistence')
     testImplementation project(':airbyte-test-utils')
