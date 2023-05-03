@@ -241,8 +241,6 @@ subprojects { subproj ->
             def nginxImage = System.getenv('NGINX_IMAGE') ?: isArm64 ? 'arm64v8/nginx:alpine' : 'amd64/nginx:alpine'
             def openjdkImage = System.getenv('JDK_IMAGE') ?: isArm64 ? "arm64v8/amazoncorretto:19" : "amd64/amazoncorretto:19"
             def buildArch = System.getenv('DOCKER_BUILD_ARCH') ?: isArm64 ? 'arm64' : 'amd64'
-            
-            project.logger.lifecycle('jdkVersion is: {} for project {}', jdkVersion, subproj.name)
 
             platform = buildPlatform
             images.add("airbyte/$subproj.dockerImageName:$rootProject.ext.image_tag")
