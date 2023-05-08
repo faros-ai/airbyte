@@ -1,4 +1,4 @@
-ARG JDK_VERSION=17.0.4
+ARG JDK_VERSION=17-al2023
 ARG JDK_IMAGE=amazoncorretto:${JDK_VERSION}
 FROM ${JDK_IMAGE} AS server
 
@@ -9,7 +9,7 @@ ARG VERSION=0.40.9
 ENV APPLICATION airbyte-server
 ENV VERSION ${VERSION}
 
-RUN yum update --security -y && yum clean all
+RUN dnf update --security -y && dnf clean all
 
 WORKDIR /app
 
