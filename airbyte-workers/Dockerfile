@@ -4,9 +4,7 @@ FROM ${JDK_IMAGE} AS worker
 
 ARG DOCKER_BUILD_ARCH=amd64
 
-RUN dnf install -y docker
-RUN dnf install -y jq tar && dnf update --security -y && dnf clean all
-RUN dnf install -y containerd --releasever=2023.0.20230503
+RUN dnf install -y docker containerd jq --releasever=latest
 
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/${DOCKER_BUILD_ARCH}/kubectl" \
         && chmod +x kubectl && mv kubectl /usr/local/bin/
