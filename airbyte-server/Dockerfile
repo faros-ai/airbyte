@@ -9,7 +9,7 @@ ARG VERSION=0.40.9
 ENV APPLICATION airbyte-server
 ENV VERSION ${VERSION}
 
-RUN yum update --security -y && yum clean all
+RUN dnf update --security -y && dnf clean all
 
 WORKDIR /app
 

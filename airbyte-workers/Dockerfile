@@ -1,11 +1,12 @@
-ARG JDK_VERSION=17.0.4
+ARG JDK_VERSION=17-al2023
 ARG JDK_IMAGE=amazoncorretto:${JDK_VERSION}
 FROM ${JDK_IMAGE} AS worker
 
 ARG DOCKER_BUILD_ARCH=amd64
 
-RUN amazon-linux-extras install -y docker
-RUN yum install -y jq tar && yum update --security -y && yum clean all
+RUN dnf install -y docker
+RUN dnf install -y jq tar && dnf update --security -y && dnf clean all
+RUN dnf install -y containerd --releasever=2023.0.20230503
 
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/${DOCKER_BUILD_ARCH}/kubectl" \
         && chmod +x kubectl && mv kubectl /usr/local/bin/
