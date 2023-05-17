@@ -20,6 +20,8 @@ RUN pip install .
 WORKDIR /airbyte/normalization_code
 RUN pip install .
 
+RUN pip install --force-reinstall MarkupSafe==2.0.1
+
 WORKDIR /airbyte/normalization_code/dbt-template/
 # Download external dbt dependencies
 RUN dbt deps

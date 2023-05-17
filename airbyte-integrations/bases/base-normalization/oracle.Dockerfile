@@ -41,6 +41,8 @@ RUN pip install .
 # based of https://github.com/techindicium/dbt-oracle/tree/fa9718809840ee73e6072f483233f5150cc9986c
 RUN pip install dbt-oracle==0.4.3
 
+RUN pip install --force-reinstall MarkupSafe==2.0.1
+
 WORKDIR /airbyte/normalization_code/dbt-template/
 # Download external dbt dependencies
 RUN dbt deps
