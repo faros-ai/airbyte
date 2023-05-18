@@ -10,6 +10,8 @@ RUN yum install -y java-17-amazon-corretto-devel
 
 RUN yum clean all
 
+ENV JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64
+
 WORKDIR /airbyte
 
 # Add the Datadog Java APM agent
