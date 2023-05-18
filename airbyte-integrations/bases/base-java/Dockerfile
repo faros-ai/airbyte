@@ -2,7 +2,13 @@ ARG JDK_VERSION=17.0.4
 FROM amazoncorretto:${JDK_VERSION}
 COPY --from=airbyte/integration-base:dev /airbyte /airbyte
 
-RUN yum install -y tar openssl && yum update -y && yum clean all
+RUN yum install -y tar openssl && yum update -y
+
+RUN rpm --import https://yum.corretto.aws/corretto.key
+RUN curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
+RUN yum install -y java-17-amazon-corretto-devel
+
+RUN yum clean all
 
 WORKDIR /airbyte
 
