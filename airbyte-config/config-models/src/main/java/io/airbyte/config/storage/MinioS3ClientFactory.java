@@ -45,6 +45,7 @@ public class MinioS3ClientFactory implements Supplier<S3Client> {
       builder.credentialsProvider(() -> AwsBasicCredentials.create(minioConfig.getAwsAccessKey(), minioConfig.getAwsSecretAccessKey()));
       builder.endpointOverride(minioUri);
       builder.region(Region.US_EAST_1); // Although this is not used, the S3 client will error out if this is not set. Set a stub value.
+      builder.forcePathStyle(true);
     } catch (final URISyntaxException e) {
       throw new RuntimeException("Error creating S3 log client to Minio", e);
     }
