@@ -44,6 +44,7 @@ public class DefaultS3ClientFactory implements Supplier<S3Client> {
     final var builder = S3Client.builder();
     builder.credentialsProvider(() -> AwsBasicCredentials.create(s3Config.getAwsAccessKey(), s3Config.getAwsSecretAccessKey()));
     builder.region(Region.of(s3Config.getRegion()));
+    builder.forcePathStyle(true);
     return builder.build();
   }
 
