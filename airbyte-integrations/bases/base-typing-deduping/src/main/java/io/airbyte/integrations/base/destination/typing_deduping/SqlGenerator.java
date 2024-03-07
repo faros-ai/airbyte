@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface SqlGenerator<DialectTableDefinition> {
 
-  Set<String> FINAL_TABLE_AIRBYTE_COLUMNS = Set.of("_airbyte_raw_id", "_airbyte_extracted_at", "_airbyte_meta");
+  Set<String> FINAL_TABLE_AIRBYTE_COLUMNS = Set.of("_raw_id", "_extracted_at", "_meta");
   String SOFT_RESET_SUFFIX = "_ab_soft_reset";
 
   StreamId buildStreamId(String namespace, String name, String rawNamespaceOverride);

@@ -18,18 +18,18 @@ public final class JavaBaseConstants {
   public static final String ARGS_CATALOG_DESC = "input path for the catalog";
   public static final String ARGS_PATH_DESC = "path to the json-encoded state file";
 
-  public static final String COLUMN_NAME_AB_ID = "_airbyte_ab_id";
-  public static final String COLUMN_NAME_EMITTED_AT = "_airbyte_emitted_at";
-  public static final String COLUMN_NAME_DATA = "_airbyte_data";
+  public static final String COLUMN_NAME_AB_ID = "_ab_id";
+  public static final String COLUMN_NAME_EMITTED_AT = "_emitted_at";
+  public static final String COLUMN_NAME_DATA = "_data";
   public static final List<String> LEGACY_COLUMN_NAMES = List.of(
       COLUMN_NAME_AB_ID,
       COLUMN_NAME_DATA,
       COLUMN_NAME_EMITTED_AT);
 
   // destination v2
-  public static final String COLUMN_NAME_AB_RAW_ID = "_airbyte_raw_id";
-  public static final String COLUMN_NAME_AB_LOADED_AT = "_airbyte_loaded_at";
-  public static final String COLUMN_NAME_AB_EXTRACTED_AT = "_airbyte_extracted_at";
+  public static final String COLUMN_NAME_AB_RAW_ID = "_raw_id";
+  public static final String COLUMN_NAME_AB_LOADED_AT = "_loaded_at";
+  public static final String COLUMN_NAME_AB_EXTRACTED_AT = "_extracted_at";
   public static final List<String> V2_COLUMN_NAMES = List.of(
       COLUMN_NAME_AB_RAW_ID,
       COLUMN_NAME_AB_EXTRACTED_AT,

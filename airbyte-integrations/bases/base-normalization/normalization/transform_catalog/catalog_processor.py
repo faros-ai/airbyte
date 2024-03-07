@@ -74,7 +74,7 @@ class CatalogProcessor:
                 or self.destination_type == DestinationType.TIDB
                 or self.destination_type == DestinationType.DUCKDB
             )
-            raw_table_name = self.name_transformer.normalize_table_name(f"_airbyte_raw_{stream_processor.stream_name}", truncate=truncate)
+            raw_table_name = self.name_transformer.normalize_table_name(f"_raw_{stream_processor.stream_name}", truncate=truncate)
             add_table_to_sources(schema_to_source_tables, stream_processor.schema, raw_table_name)
 
             nested_processors = stream_processor.process()
@@ -125,7 +125,7 @@ class CatalogProcessor:
                 or destination_type == DestinationType.TIDB
                 or destination_type == DestinationType.DUCKDB
             )
-            raw_table_name = name_transformer.normalize_table_name(f"_airbyte_raw_{stream_name}", truncate=truncate)
+            raw_table_name = name_transformer.normalize_table_name(f"_raw_{stream_name}", truncate=truncate)
 
             source_sync_mode = get_source_sync_mode(configured_stream, stream_name)
             destination_sync_mode = get_destination_sync_mode(configured_stream, stream_name)

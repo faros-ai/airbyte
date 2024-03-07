@@ -44,7 +44,7 @@ public class RecordDiffer {
   @SafeVarargs
   public RecordDiffer(final Pair<String, AirbyteType>... identifyingColumns) {
     this.recordIdentityComparator = buildIdentityComparator(identifyingColumns);
-    this.recordSortComparator = recordIdentityComparator.thenComparing(record -> asString(record.get("_airbyte_raw_id")));
+    this.recordSortComparator = recordIdentityComparator.thenComparing(record -> asString(record.get("_raw_id")));
     this.recordIdentityExtractor = buildIdentityExtractor(identifyingColumns);
   }
 

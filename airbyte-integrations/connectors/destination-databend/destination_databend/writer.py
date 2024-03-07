@@ -43,16 +43,16 @@ class DatabendWriter:
 
         :param name: table name to delete.
         """
-        self.cursor.execute(f"DROP TABLE IF EXISTS _airbyte_raw_{name}")
+        self.cursor.execute(f"DROP TABLE IF EXISTS _raw_{name}")
 
     def create_raw_table(self, name: str):
         """
-        Create the resulting _airbyte_raw table.
+        Create the resulting _raw table.
 
         :param name: table name to create.
         """
         query = f"""
-        CREATE TABLE IF NOT EXISTS _airbyte_raw_{name} (
+        CREATE TABLE IF NOT EXISTS _raw_{name} (
             _airbyte_ab_id TEXT,
             _airbyte_emitted_at TIMESTAMP,
             _airbyte_data TEXT

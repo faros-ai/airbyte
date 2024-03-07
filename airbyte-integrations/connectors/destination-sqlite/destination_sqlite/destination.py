@@ -60,7 +60,7 @@ class DestinationSqlite(Destination):
             # create the tables if needed
             for configured_stream in configured_catalog.streams:
                 name = configured_stream.stream.name
-                table_name = f"_airbyte_raw_{name}"
+                table_name = f"_raw_{name}"
                 if configured_stream.destination_sync_mode == DestinationSyncMode.overwrite:
                     # delete the tables
                     query = """
@@ -92,7 +92,7 @@ class DestinationSqlite(Destination):
                         INSERT INTO {table_name}
                         VALUES (?,?,?)
                         """.format(
-                            table_name=f"_airbyte_raw_{stream_name}"
+                            table_name=f"_raw_{stream_name}"
                         )
 
                         con.executemany(query, buffer[stream_name])
@@ -118,7 +118,7 @@ class DestinationSqlite(Destination):
                 INSERT INTO {table_name}
                 VALUES (?,?,?)
                 """.format(
-                    table_name=f"_airbyte_raw_{stream_name}"
+                    table_name=f"_raw_{stream_name}"
                 )
 
                 con.executemany(query, buffer[stream_name])
